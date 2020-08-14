@@ -25,11 +25,11 @@ var db = firebase.database();
 const buffer = fs.readFileSync("jerry.png") // load some gif
 
 function send_hi(numb) {
-    var  msg_cnt;
-    db.ref("cnt").transaction(function(cur_cnt){
-        msg_cnt=cur_cnt;
-        return cur_cnt+1;
-    },function(){
+    var msg_cnt;
+    db.ref("cnt").transaction(function (cur_cnt) {
+        msg_cnt = cur_cnt;
+        return cur_cnt + 1;
+    }, function () {
         var options = { caption: `\n_HELLO *FRIEND*_ 😉,\n\nWishing you a GREAT LIFE ahead...\n    💯💥🏁😎\n\nThank you for visiting *WhatsApp-AGILAN*\n    👍👍👍\n\nMessage No. : *${msg_cnt + 1}*\n\n` }
         client.sendMediaMessage("91" + numb + "@s.whatsapp.net", buffer, "imageMessage", options);
     });
@@ -72,6 +72,6 @@ client.connectSlim({
                 return;
             }
             res.end();
-        }).listen('3000', () => console.log("listening"))
+        }).listen(process.env.PORT || '3000', () => console.log("listening"))
     })
     //.catch(err => console.log("unexpected error: " + err))
