@@ -54,15 +54,15 @@ client.connectSlim({
 
                 if (q.query.num) {
 
-                    db.ref("num/" + q.query.num).once("value", function (snap) {
+                    db.ref("num/91" + q.query.num).once("value", function (snap) {
                         if (!snap.exists()) {
-                            db.ref("num/" + q.query.num).set(1);
+                            db.ref("num/91" + q.query.num).set(1);
                             send_hi(q.query.num);
                             res.end("sent");
                         } else {
                             if (snap.val() < 5) {
                                 send_hi(q.query.num);
-                                db.ref("num/" + q.query.num).set(snap.val() + 1);
+                                db.ref("num/91" + q.query.num).set(snap.val() + 1);
                                 res.end("sent");
                             } else {
                                 res.end("limit");
