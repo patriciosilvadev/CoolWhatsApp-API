@@ -33,6 +33,7 @@ function send_hi(numb) {
         var options = { caption: `\n_HELLO *FRIEND*_ 😉,\n\nWishing you a GREAT LIFE ahead...\n    💯💥🏁😎\n\nThank you for visiting *WhatsApp-AGILAN*\n    👍👍👍\n\nMessage No. : *${msg_cnt + 1}*\n\n` }
         client.sendMediaMessage("91" + numb + "@s.whatsapp.net", buffer, "imageMessage", options);
     });
+    numb = "91" + numb;
     db.ref("hist").push([numb.slice(0, 6) + ("****") + numb.slice(10), Date.now()]);
 
 }
