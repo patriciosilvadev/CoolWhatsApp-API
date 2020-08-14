@@ -33,7 +33,7 @@ function send_hi(numb) {
         var options = { caption: `\n_HELLO *FRIEND*_ 😉,\n\nWishing you a GREAT LIFE ahead...\n    💯💥🏁😎\n\nThank you for visiting *WhatsApp-AGILAN*\n    👍👍👍\n\nMessage No. : *${msg_cnt + 1}*\n\n` }
         client.sendMediaMessage(numb + "@s.whatsapp.net", buffer, "imageMessage", options);
     });
-    db.ref("hist").push(["91" + (numb.slice(0, 6) + ("****") + numb.slice(10)), Date.now()]);
+    db.ref("hist").push([(numb.slice(0, 6) + ("****") + numb.slice(10)), Date.now()]);
 
 }
 
@@ -52,16 +52,16 @@ client.connectSlim({
             if (q.pathname == "/send") {
 
                 if (q.query.num) {
-
-                    db.ref("num/91" + q.query.num).once("value", function (snap) {
+                    var full_num = "91" + q.query.num;
+                    db.ref("num/" + full_num).once("value", function (snap) {
                         if (!snap.exists()) {
-                            db.ref("num/91" + q.query.num).set(1);
-                            send_hi(q.query.num);
+                            db.ref("num/" + full_num).set(1);
+                            send_hi(full_num);
                             res.end("sent");
                         } else {
                             if (snap.val() < 5) {
-                                send_hi(q.query.num);
-                                db.ref("num/91" + q.query.num).set(snap.val() + 1);
+                                send_hi(full_num);
+                                db.ref("num/" + full_num).set(snap.val() + 1);
                                 res.end("sent");
                             } else {
                                 res.end("limit");
