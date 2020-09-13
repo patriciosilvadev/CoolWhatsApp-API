@@ -2,7 +2,7 @@
 An API hosted on **Heroku** platform that allows you to receive a greeting from me on **WhatsApp**
 
 ## url
-FOR INDIA (+91)
+FOR INDIA (91)
 > htt<span>ps://</span>whatsapp-agilan.herokuapp.com/send?num=xxxxxxxxxx
 
 FOR OTHERS 
@@ -10,7 +10,7 @@ FOR OTHERS
 
 Replace :
 * **xxxxxxxxxx** with your **10 digit WhatsApp Number**
-* **yy** with your **country-code**
+* **yy** with your **country-code** Initail '+' is not required (eg. CHINA : yy = 86)
 
 Send a **GET** request to receive a greeting message
 
