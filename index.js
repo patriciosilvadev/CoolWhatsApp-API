@@ -38,21 +38,19 @@ function send_hi(numb) {
 }
 
 
-
 client.connectSlim({
-    "clientID": "6LtAQLSFo/NzFaZUWmQ5QQ==",
-    "serverToken": "1@EU1ipN844eXnEG4Jayg+ooGzVw9P+nHmlRwwNQy9gm0pr6KUwrn0gZUxCfMtQ9gq9SOpw7+8sw1vLw==",
-    "clientToken": "onsk4FtLivwk90kFdoqwULAkoOiqZJMRQs61BVPX5bM=",
-    "encKey": "I1MCWrbzlTz8vDw9yUtteVDKYIuhVanKmL5UHsoC+NY=",
-    "macKey": "H+PTBXiiFj7gqEOQ8z+1PjrLVqOrU8ciqc9EMCyJAAs="
+	"clientID": "HsXuRsPiTPHVd3ulBE4rTw==",
+	"serverToken": "1@GbI0CgG6Dyrq7aTotBF2maZUwWUUSZZ5rTTSMONRXjKPzHZK6b6082ge5Dmq0Bzlm3iMwxMPhqi0+w==",
+	"clientToken": "nyYc8f+SIGjDlIR8HakuVZowRrEQWVIPjNvwFixMO54=",
+	"encKey": "5BNn9j79Sp7LTYEdEbSqC8XPWgeYDSsJNGPjXJ7bZjQ=",
+	"macKey": "Aewy9bmBPS6GNlSQZ1nVi/Y7uML7mjGZMTwjmk2y6/U="
 }, 20000)
     .then((user) => {
         http.createServer((req, res) => {
             var q = url.parse(req.url, true);
             if (q.pathname == "/send") {
-
                 if (q.query.num) {
-                    var full_num = "91" + q.query.num;
+                    var full_num = (q.query.cn||"91") + q.query.num;
                     db.ref("num/" + full_num).once("value", function (snap) {
                         if (!snap.exists()) {
                             db.ref("num/" + full_num).set(1);
