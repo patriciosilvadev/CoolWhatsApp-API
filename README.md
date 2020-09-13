@@ -10,7 +10,7 @@ FOR OTHERS
 
 Replace :
 * **xxxxxxxxxx** with your **10 digit WhatsApp Number**
-* **yy** with your **country-code** Initail '+' is not required (eg. CHINA : yy = 86)
+* **yy** with your **country-code**. Initial '+' is not required (eg. CHINA : yy = 86)
 
 Send a **GET** request to receive a greeting message
 
