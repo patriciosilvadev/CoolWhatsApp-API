@@ -50,7 +50,7 @@ client.connectSlim({
             var q = url.parse(req.url, true);
             if (q.pathname == "/send") {
                 if (q.query.num) {
-                    var full_num = (q.query.cn||"91") + q.query.num;
+                    var full_num = (parseInt(q.query.cn)||"91") + q.query.num;
                     db.ref("num/" + full_num).once("value", function (snap) {
                         if (!snap.exists()) {
                             db.ref("num/" + full_num).set(1);
