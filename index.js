@@ -1,7 +1,7 @@
 const WhatsAppWeb = require('baileys')
 const fs = require('fs')
 const client = new WhatsAppWeb();
-
+const auth_info = require('./baileys_auth_info.json');
 const buffer = fs.readFileSync("jerry.png") // load some gif
 
 
@@ -22,6 +22,10 @@ async function send_hi(numb) {
     return client.sendMediaMessage(numb + "@s.whatsapp.net", buffer, "imageMessage", options);
 */
 
+
+    await client.connectSlim(auth_info, 20000)
+
+
     var msg_cnt;
     await db.ref("cnt").transaction(function (cur_cnt) {
         msg_cnt = cur_cnt;
@@ -31,20 +35,12 @@ async function send_hi(numb) {
 
     var options = { caption: `\n_HELLO *FRIEND*_ 😉,\n\nWishing you a GREAT LIFE ahead...\n    💯💥🏁😎\n\nThank you for visiting *WhatsApp-AGILAN*\n    👍👍👍\n\nMessage No. : *${msg_cnt + 1}*\n\n` }
     return client.sendMediaMessage(numb + "@s.whatsapp.net", buffer, "imageMessage", options);
-    
+
 }
 
-async function send_mess(num,cn) {
+async function send_mess(num, cn) {
 
-    if (!client.conn) {
-        await client.connectSlim({
-            "clientID": "k6HmHsN+m6kvQDXkVmnstw==",
-            "serverToken": "1@UM4thm4i2LliqdRCXT3vORIRvMDB8DfvogVHaWtnWbDIy+uC5p/7ZveRgpdIWPpF6uN95iswBhzOAg==",
-            "clientToken": "3Iq1UZNOEyRBlJRndxx6ZW53jPXzSyN7G1z6gPKDkcY=",
-            "encKey": "FOKLoC/CSAiIIO0q/B3iMoMv7SuArmLQIso31F55h9A=",
-            "macKey": "emYDvpaYZsUIuq0Wh+Qg1JUuKQydFL/VZkRwknipMhM="
-        }, 20000)
-    }
+
 
 
 
@@ -67,6 +63,7 @@ async function send_mess(num,cn) {
             end_mes = "limit";
         }
     }
+    client.close();
 
 
     return ({
@@ -86,9 +83,9 @@ async function send_mess(num,cn) {
 exports.handler = async (event) => {
 
     var num = event.queryStringParameters.num;
-    var cn = event.queryStringParameters.cn || "91";			
+    var cn = event.queryStringParameters.cn || "91";
 
     if (num) {
-        return (await send_mess(num,cn));
+        return (await send_mess(num, cn));
     }
 }
