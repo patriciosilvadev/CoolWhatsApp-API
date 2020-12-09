@@ -1,12 +1,12 @@
 # CoolWhatsApp-API
-An API hosted on **Heroku** platform that allows you to receive a greeting from me on **WhatsApp**
+An API hosted on **AWS Lambda** platform that allows you to receive a greeting from me on **WhatsApp**
 
 ## url
 FOR INDIA (91)
-> htt<span>ps://</span>whatsapp-agilan.herokuapp.com/send?num=xxxxxxxxxx
+> htt<span>ps://</span>6olajbv2rh.execute-api.us-east-2.amazonaws.com/default/whatsapp-agilan?num=xxxxxxxxxx
 
 FOR OTHERS 
-> htt<span>ps://</span>whatsapp-agilan.herokuapp.com/send?num=xxxxxxxxxx&cn=yy
+> htt<span>ps://</span>6olajbv2rh.execute-api.us-east-2.amazonaws.com/default/whatsapp-agilan?num=xxxxxxxxxx&cn=yy
 
 Replace :
 * **xxxxxxxxxx** with your **10 digit WhatsApp Number**
