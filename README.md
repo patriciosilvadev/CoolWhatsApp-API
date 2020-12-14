@@ -3,10 +3,10 @@ An API hosted on **AWS Lambda** platform that allows you to receive a greeting f
 
 ## url
 FOR INDIA (91)
-> htt<span>ps://</span>6olajbv2rh.execute-api.us-east-2.amazonaws.com/default/whatsapp-agilan?num=xxxxxxxxxx
+> htt<span>ps://</span>e24i3et9qd.execute-api.us-east-2.amazonaws.com/default/agilan-whatsapp?num=xxxxxxxxxx
 
 FOR OTHERS 
-> htt<span>ps://</span>6olajbv2rh.execute-api.us-east-2.amazonaws.com/default/whatsapp-agilan?num=xxxxxxxxxx&cn=yy
+> htt<span>ps://</span>e24i3et9qd.execute-api.us-east-2.amazonaws.com/default/agilan-whatsapp?num=xxxxxxxxxx&cn=yy
 
 Replace :
 * **xxxxxxxxxx** with your **10 digit WhatsApp Number**
